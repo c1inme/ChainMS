@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="CMS.WPFHeadOffice.Views.GroupCustomer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              xmlns:mui="clr-namespace:ControlLibrary;assembly=ControlLibrary"
+             xmlns:local="clr-namespace:CMS.WPFHeadOffice"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer>
+        <StackPanel MinWidth="200">
+
+
+            <TextBlock Text="New group customer" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+            <mui:BBCodeBlock BBCode="Group customer information" Margin="0,0,0,16"/>
+
+            <!-- actual form starts here -->
+            <StackPanel x:Name="Form" Orientation="Vertical">
+
+              
+                <StackPanel.Resources>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Orientation" Value="Horizontal" />
+                        <Setter Property="Margin" Value="0,0,0,4" />
+                    </Style>
+                    <Style TargetType="local:FLabel">
+                        <Setter Property="Width" Value="100" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Width" Value="100" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                    <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                        <Setter Property="Padding" Value="0,3" />
+                    </Style>
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                        <Setter Property="Padding" Value="0,3" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <StackPanel>
+                    <local:FLabel TextKey="Label_CodeGroupCustomerSuplier"/>
+                    <TextBox  Width="150" Text="{Binding CodeGroup, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                </StackPanel>
+                <StackPanel>
+                    <local:FLabel TextKey="Label_NameGroupCustomerSuplier"/>
+                    <TextBox Width="150" Text="{Binding NameGroup, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+                </StackPanel>
+                <StackPanel>
+                    <local:FLabel TextKey="Label_DescriptionGroupCustomerSuplier"/>
+                    <TextBox Width="150"   AcceptsReturn="True" Height="60"    Text="{Binding Description, Mode=TwoWay, ValidatesOnDataErrors=True}"   />
+                </StackPanel>
+                <StackPanel>
+                    <local:FLabel TextKey="Label_ParentCustomerSuplier"/>
+                    <TextBlock Width="150" FontWeight="Bold" Text="{Binding Parent.NameGroup, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                </StackPanel>
+                
+                <StackPanel>
+                    <Button Content="Submit" Margin="100,16,0,0" HorizontalAlignment="Left" Click="Submitbtn_Click" x:Name="Submitbtn" />
+                    <Button Content="Cancel" Margin="20,16,0,0" HorizontalAlignment="Left" Click="Cancelbtn_Click" x:Name="Cancelbtn" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

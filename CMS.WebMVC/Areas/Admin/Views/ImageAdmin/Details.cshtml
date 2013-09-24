@@ -1,0 +1,50 @@
+﻿@model CMS.Entities.ServerObjects.Image
+@using CMS.WebMVC;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Image</legend>
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.ThumpnailPath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayImageFor(model => model.ThumpnailPath)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SmallPath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayImageFor(model => model.SmallPath)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FullHdPath)
+    </div>
+    <div class="display-field">
+          @Html.DisplayImageFor(model => model.FullHdPath)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+   
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Discriminator)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Discriminator)
+    </div>
+   
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.GuidId  }) |
+    @Html.ActionLink("Back to list", "ImageByDiscriminator", "ImageAdmin", new { Discriminator = Model.Discriminator, IdBelong = Model.IdBelong }, new object())
+</p>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<English>
+  <Item Name="AddUpdateProjectWindow_DoublonMessages">Some codes or descriptions are listed several times.</Item>
+  <Item name="General_Title">Chain management system</Item>
+  <Item name="General_Ok">Ok</Item>
+  <Item name="General_Edit">Edit</Item>
+  <Item name="General_Save">Save</Item>
+  <Item name="General_Cancel">Cancel</Item>
+  <Item name="General_Send">Send</Item>
+  <Item name="General_Yes">Yes</Item>
+  <Item name="General_No">No</Item>
+  <Item name="General_Back">Back</Item>
+  <Item name="General_New">New</Item>
+  <Item name="General_Close">Close</Item>
+  <Item name="General_Update">Update</Item>
+  <Item name="General_Delete">Delete</Item>
+  <Item name="ModernDialog_ErrorDetails">Error details</Item>
+  
+  <Item name="LogOut">Sign Out</Item>
+  <Item name="EditInfo">Information</Item>
+  <Item name="BetweenLength">Range lenth must between from {0} --> {1}</Item>
+  <Item name="EmailInValid">Email invalid, please try again</Item>
+</English>

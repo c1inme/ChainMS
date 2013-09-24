@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="CMS.WPFHeadOffice.Views.ListGroupCustomerSupplier"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CMS.WPFHeadOffice"
+             xmlns:client="clr-namespace:CMS.Entities.ClientObjects;assembly=CMS.Entities"
+           
+             xmlns:mui="clr-namespace:ControlLibrary;assembly=ControlLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <local:FLabel DockPanel.Dock="Top" Grid.ColumnSpan="3" TextKey="Key_GridGroupCustomerSupplierList"  Margin="0,0,0,8" />
+
+        <mui:CMSTreeView ExpandAll="True" x:Name="mainTree" ItemsSource="{Binding ItemSource,Mode=TwoWay}" Height="Auto"  Grid.Column="0"  Grid.Row="1" BorderBrush="Transparent" >
+           
+                <!--<TreeViewItem.Header>
+                    <local:FLabel TextKey="Genneral_RootTree"/>
+                </TreeViewItem.Header>-->
+                <mui:CMSTreeView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem  x:Name="MenuAdd" Click="MenuAdd_Click">
+                            <MenuItem.Header>
+                                <local:FLabel TextKey="General_New" Padding="0"/>
+                            </MenuItem.Header>
+                            <MenuItem.Icon>
+                                <Image Width="16" Height="16"  Source="/CMS.WPFHeadOffice;component/Icons/IconApps/add.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem  x:Name="MenuRefresh" Click="MenuRefresh_Click">
+                            <MenuItem.Header>
+                                <local:FLabel TextKey="General_Refresh" Padding="0"/>
+                            </MenuItem.Header>
+                            <MenuItem.Icon>
+                                <Image Width="16" Height="16"  Source="/CMS.WPFHeadOffice;component/Icons/IconApps/Refresh.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem  x:Name="MenuUpdate" Click="MenuUpdate_Click" >
+                            <MenuItem.Header>
+                                <local:FLabel TextKey="General_Edit" Padding="0" />
+                            </MenuItem.Header>
+                            <MenuItem.Icon>
+                                <Image Width="16" Height="16"  Source="/CMS.WPFHeadOffice;component/Icons/IconApps/update.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem  x:Name="MenuDeleted" Click="MenuDeleted_Click">
+                            <MenuItem.Header>
+                                <local:FLabel TextKey="General_Delete" Padding="0"/>
+                            </MenuItem.Header>
+                            <MenuItem.Icon>
+                                <Image Width="16" Height="16"  Source="/CMS.WPFHeadOffice;component/Icons/IconApps/erase.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </mui:CMSTreeView.ContextMenu>
+            <!--<mui:CMSTreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type client:COGroupCustomerSupplier}" ItemsSource="{Binding Path=ListCOGroupCustomerSupplier}" >
+                    <TextBlock Margin="4 0 4 0" Text="{Binding Path=NameGroup}"/>
+                </HierarchicalDataTemplate>
+            </mui:CMSTreeView.Resources>-->
+        </mui:CMSTreeView>
+        <GridSplitter Grid.Column="1" Grid.Row="1" Width="6"  />
+    </Grid>
+</UserControl>

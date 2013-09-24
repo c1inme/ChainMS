@@ -1,0 +1,169 @@
+﻿@using CMS.WebMVC.Areas.Admin
+@using CMS.WebMVC;
+@helper TreeView(List<CMS.Entities.ServerObjects.ProductCategory> menus, string guidParent)
+{
+    if (menus == null || menus.Count() == 0)
+    {
+        return;
+    }
+
+    foreach (var item in menus)
+    {
+    <li>
+        @if (item.ListProductCategory == null || item.ListProductCategory.Count == 0)
+        {
+            string idLeaf = item.GuidId == Guid.Empty ? "" : item.GuidId.ToString();
+            if (guidParent.ToLower() == item.GuidId.ToString().ToLower())
+            {
+            <span class="leaf" id="@idLeaf" style="font-weight:bold;">@item.Name</span> 
+            }
+            else
+            {
+            <span class="leaf" id="@idLeaf">@item.Name</span> 
+            }
+        }
+        else
+        {
+
+            string idFolder = item.GuidId == Guid.Empty ? "" : item.GuidId.ToString();
+            if (guidParent.ToLower() == item.GuidId.ToString().ToLower())
+            {<span class="folder" id="@idFolder"  style="font-weight:bold;">@item.Name</span>
+            }
+            else
+            {
+            <span class="folder" id="@idFolder">@item.Name</span>
+            }
+            <ul>
+                @TreeView(item.ListProductCategory == null ? null : item.ListProductCategory.ToList(), guidParent)
+            </ul>
+        }
+    </li>
+    }
+}
+
+@model IEnumerable<CMS.Entities.ServerObjects.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+    <ul id="continentFolders" class="filetree treeview-famfamfam">
+        @TreeView(ViewBag.ListProductCategory as List<CMS.Entities.ServerObjects.ProductCategory>, Guid.Empty.ToString())
+    </ul>
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @MvcHtmlString.Create("Category")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellPrice)
+        </th>
+
+        <th>
+            @MvcHtmlString.Create("Manufacture")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentStock)
+        </th>
+
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayImageFor(modelItem => item.ImagePath, "", "", "", "", "", "80px")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellPrice)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacture.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentStock)
+            </td>
+
+
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GuidId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GuidId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GuidId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
+<link href="@Url.Content("~/Scripts/jquery.treeview/jquery.treeview.css")" rel="stylesheet" type="text/css"/>
+<script src="@Url.Content("~/Scripts/jquery.treeview/jquery.treeview.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // $.noConflict(true);
+        $('#continentFolders').treeview({ collapsed: false });
+        $(".leaf").click(function () {
+            var val = $(this).attr("id");
+            var currenttag = $(this);
+
+            $(".leaf").each(function () { $(this).css("font-weight", "normal"); }
+                )
+            $(".folder").each(function () { $(this).css("font-weight", "normal"); }
+               )
+            currenttag.css("font-weight", "bold");
+        })
+
+        $(".folder").click(function () {
+
+            var val = $(this).attr("id");
+            var currenttag = $(this);
+
+            $(".leaf").each(function () { $(this).css("font-weight", "normal"); }
+                )
+            $(".folder").each(function () { $(this).css("font-weight", "normal"); }
+               )
+            currenttag.css("font-weight", "bold");
+        })
+
+    });
+</script>

@@ -1,0 +1,135 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Entities", "CMS.Entities\CMS.Entities.csproj", "{BCD13C63-8690-45DB-BFA0-4439E057EDA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.WCFService", "CMS.WCFService\CMS.WCFService.csproj", "{8C7DFDBB-AFF5-4BB9-9132-9799D4526763}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.WPFHeadOffice", "CMS.WPFHeadOffice\CMS.WPFHeadOffice.csproj", "{B2BA3B41-254D-4859-AD70-C8077ABA3B25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C7DFDBB-AFF5-4BB9-9132-9799D4526763} = {8C7DFDBB-AFF5-4BB9-9132-9799D4526763}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.WPFBranch", "CMS.WPFBranch\CMS.WPFBranch.csproj", "{C5E232DC-2BB0-47B0-85F3-C85251C6ABCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.WebMVC", "CMS.WebMVC\CMS.WebMVC.csproj", "{5DC3EBA9-B807-447E-A895-82C1D77905B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C7DFDBB-AFF5-4BB9-9132-9799D4526763} = {8C7DFDBB-AFF5-4BB9-9132-9799D4526763}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Kernel", "CMS.Kernel\CMS.Kernel.csproj", "{F139A473-41AF-4B84-8339-03AFCB479D67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.BussinessLayer", "CMS.BussinessLayer\CMS.BussinessLayer.csproj", "{5015F6AA-BCFC-4125-85C6-33A35216350E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{899881B5-A98A-45FB-9B03-4B36907D5663}"
+	ProjectSection(SolutionItems) = preProject
+		Data\ChainMS_03_05_2013.sql = Data\ChainMS_03_05_2013.sql
+		Data\ClientDB_08_05_2013.sql = Data\ClientDB_08_05_2013.sql
+		..\Users\Administrator\Desktop\dataonly.sql = ..\Users\Administrator\Desktop\dataonly.sql
+		..\Users\Administrator\Desktop\OrginalData.sql = ..\Users\Administrator\Desktop\OrginalData.sql
+		ScriptData_05_08_2013.sql = ScriptData_05_08_2013.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlLibrary", "ControlLibrary\ControlLibrary.csproj", "{B8812303-4008-4B42-984C-579D0AD8D6F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{973A2168-9E71-41ED-9F72-F74A75644F5E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluent dotNET 4.5", "Fluent\Fluent dotNET 4.5.csproj", "{4C92FCF4-3561-499F-BC5B-F2F089863047}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentTest dotNET 4.5", "FluentTest\FluentTest dotNET 4.5.csproj", "{2C2A076B-E626-4A07-9D6E-4AEE3FEC41B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLibrary", "HelperLibrary\HelperLibrary.csproj", "{5EFFDC7D-0B2D-4765-8A2E-ADF2C457F818}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://c1inme.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CMS.BussinessLayer\\CMS.BussinessLayer.csproj
+		SccProjectName1 = CMS.BussinessLayer
+		SccLocalPath1 = CMS.BussinessLayer
+		SccProjectUniqueName2 = CMS.Entities\\CMS.Entities.csproj
+		SccProjectName2 = CMS.Entities
+		SccLocalPath2 = CMS.Entities
+		SccProjectUniqueName3 = CMS.Kernel\\CMS.Kernel.csproj
+		SccProjectName3 = CMS.Kernel
+		SccLocalPath3 = CMS.Kernel
+		SccProjectUniqueName4 = CMS.WCFService\\CMS.WCFService.csproj
+		SccProjectName4 = CMS.WCFService
+		SccLocalPath4 = CMS.WCFService
+		SccProjectUniqueName5 = CMS.WPFHeadOffice\\CMS.WPFHeadOffice.csproj
+		SccProjectName5 = CMS.WPFHeadOffice
+		SccLocalPath5 = CMS.WPFHeadOffice
+		SccProjectUniqueName6 = ControlLibrary\\ControlLibrary.csproj
+		SccProjectName6 = ControlLibrary
+		SccLocalPath6 = ControlLibrary
+		SccProjectUniqueName7 = Fluent\\Fluent\u0020dotNET\u00204.5.csproj
+		SccProjectName7 = Fluent
+		SccLocalPath7 = Fluent
+		SccProjectUniqueName8 = HelperLibrary\\HelperLibrary.csproj
+		SccProjectName8 = HelperLibrary
+		SccLocalPath8 = HelperLibrary
+		SccProjectUniqueName9 = CMS.WebMVC\\CMS.WebMVC.csproj
+		SccProjectName9 = CMS.WebMVC
+		SccLocalPath9 = CMS.WebMVC
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCD13C63-8690-45DB-BFA0-4439E057EDA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD13C63-8690-45DB-BFA0-4439E057EDA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD13C63-8690-45DB-BFA0-4439E057EDA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD13C63-8690-45DB-BFA0-4439E057EDA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C7DFDBB-AFF5-4BB9-9132-9799D4526763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7DFDBB-AFF5-4BB9-9132-9799D4526763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7DFDBB-AFF5-4BB9-9132-9799D4526763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7DFDBB-AFF5-4BB9-9132-9799D4526763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2BA3B41-254D-4859-AD70-C8077ABA3B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BA3B41-254D-4859-AD70-C8077ABA3B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BA3B41-254D-4859-AD70-C8077ABA3B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BA3B41-254D-4859-AD70-C8077ABA3B25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E232DC-2BB0-47B0-85F3-C85251C6ABCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E232DC-2BB0-47B0-85F3-C85251C6ABCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E232DC-2BB0-47B0-85F3-C85251C6ABCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E232DC-2BB0-47B0-85F3-C85251C6ABCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC3EBA9-B807-447E-A895-82C1D77905B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC3EBA9-B807-447E-A895-82C1D77905B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC3EBA9-B807-447E-A895-82C1D77905B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC3EBA9-B807-447E-A895-82C1D77905B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F139A473-41AF-4B84-8339-03AFCB479D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F139A473-41AF-4B84-8339-03AFCB479D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F139A473-41AF-4B84-8339-03AFCB479D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F139A473-41AF-4B84-8339-03AFCB479D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5015F6AA-BCFC-4125-85C6-33A35216350E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5015F6AA-BCFC-4125-85C6-33A35216350E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5015F6AA-BCFC-4125-85C6-33A35216350E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5015F6AA-BCFC-4125-85C6-33A35216350E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8812303-4008-4B42-984C-579D0AD8D6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8812303-4008-4B42-984C-579D0AD8D6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8812303-4008-4B42-984C-579D0AD8D6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8812303-4008-4B42-984C-579D0AD8D6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C2A076B-E626-4A07-9D6E-4AEE3FEC41B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C2A076B-E626-4A07-9D6E-4AEE3FEC41B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C2A076B-E626-4A07-9D6E-4AEE3FEC41B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C2A076B-E626-4A07-9D6E-4AEE3FEC41B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFFDC7D-0B2D-4765-8A2E-ADF2C457F818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFFDC7D-0B2D-4765-8A2E-ADF2C457F818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFFDC7D-0B2D-4765-8A2E-ADF2C457F818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFFDC7D-0B2D-4765-8A2E-ADF2C457F818}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

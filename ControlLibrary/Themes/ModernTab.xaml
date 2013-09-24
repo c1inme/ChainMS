@@ -1,0 +1,131 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ControlLibrary">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ControlLibrary;component/Assets/Converters.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="controls:ModernTab">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ModernTab">
+                    <Grid>
+
+                        <!-- link list -->
+                        <ListBox x:Name="LinkList" ItemsSource="{TemplateBinding Links}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="Top" Margin="{DynamicResource HeaderMargin}"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                 ScrollViewer.CanContentScroll="False"
+                                 ScrollViewer.PanningMode="Both"
+                                 >
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem" >
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource ItemText}" />
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Margin" Value="0"/>
+                                    <Setter Property="Padding" Value="2"/>
+                                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem">
+                                                <Border Name="Bd"  Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"         SnapsToDevicePixels="true" Padding="10 5">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ContentControl Name="presenter" Padding="0"  Content="{Binding DisplayName}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                        <Grid  Name="CloseBTN" Visibility="Collapsed"  Background="Transparent" Margin="5 0 -5 0" >
+                                                            <Button   Width="14" Height="10" Style="{StaticResource SystemButton}" Foreground="Red"   >
+                                                                <Grid   RenderTransform="1,0,0,1,0,1">
+                                                                    <Path  Data="M0,0 L8,7 M8,0 L0,7 Z" Width="12" Height="8" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                              Stroke="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" StrokeThickness="1.5"  />
+                                                                </Grid>
+                                                            </Button>
+                                                            <ToggleButton x:Name="btnDeleted" Style="{StaticResource SystemButton}" Width="14" Height="10" Background="Transparent" Padding="0"    IsChecked="{Binding IsDeleted}" ToolTip="Close tab" />
+                                                        </Grid>
+                                                        
+                                                    </StackPanel>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ItemBackgroundHover}"/>
+                                                        <!--<Setter TargetName="Bd" Property="Padding" Value="10, 5, 25,5"/>-->
+                                                        <Setter TargetName="CloseBTN"  Property="Visibility" Value="Visible"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource ItemTextHover}" />
+                                                    </Trigger>
+
+                                                    <Trigger Property="IsSelected" Value="true">
+                                                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ItemBackgroundSelected}"/>
+                                                        <Setter TargetName="presenter" Property="Foreground" Value="White"/>
+                                                        <Setter Property="FontWeight" Value="Bold" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Foreground" Value="{DynamicResource ItemTextDisabled}"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+
+                        </ListBox>
+
+                        <!-- content -->
+                        <controls:ModernFrame IsLoadingContent="{Binding IsLoadingContent, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" LinkSelected="{Binding SelectedLink, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"  ContentLoader="{TemplateBinding ContentLoader}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="Layout" Value="List">
+                <Trigger.Setters>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="controls:ModernTab">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="170"/>
+                                        <ColumnDefinition Width="9" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- link list -->
+                                    <ListBox x:Name="LinkList" ItemsSource="{TemplateBinding Links}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+
+                                                <ContentControl Content="{Binding DisplayName, Converter={StaticResource ToUpperConverter}}" Margin="10,2,2,2" FontSize="{DynamicResource SmallFontSize}"  />
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                    <!-- seperator -->
+                                    <Rectangle Grid.Column="1" Fill="{DynamicResource SeparatorBackground}" Width="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+
+                                    <!-- content -->
+                                    <controls:ModernFrame Grid.Column="2"  LinkSelected="{Binding SelectedLink, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" ContentLoader="{TemplateBinding ContentLoader}" Margin="32,0,0,0" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger.Setters>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+</ResourceDictionary>

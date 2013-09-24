@@ -1,0 +1,56 @@
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\Fluent.XML
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\Fluent.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\Fluent.pdb
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\Fluent.dll.CodeAnalysisLog.xml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\Fluent.dll.lastcodeanalysissucceeded
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\System.Windows.Interactivity.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\de\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\en\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\es\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\fr\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\it\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\ja\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\ko\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\ru\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\bin\NET 4.5\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\ScrollBar.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Fonts.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Office2010\Colors\ColorsSilver.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Office2010\Colors\ColorsBlue.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Office2010\Colors\ColorsBlack.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Fluent_MarkupCompile.cache
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Fluent_MarkupCompile.lref
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Generic.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Colors\Colors.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Colors\ColorsWhite.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\Backstage.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\BackstageTabControl.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\BackstageTabItem.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\Button.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\ComboBox.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\ComboBoxItem.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\DropDownButton.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\GalleryItem.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\Ribbon.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\RibbonContextualTabGroup.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\RibbonGroupBox.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\RibbonStatusBar.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\RibbonTabControl.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\RibbonTabItem.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\Slider.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\Spinner.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\SplitButton.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\StatusBar.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\Controls\ToggleButton.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\MetroWindow.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\RibbonWindow.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Metro\White.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Office2010\Black.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Office2010\Blue.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Themes\Office2010\Silver.baml
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Fluent.g.resources
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Fluent.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Fluent.pdb
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\Fluent\obj\Debug\Fluent dotNET 4.5.csprojResolveAssemblyReference.cache

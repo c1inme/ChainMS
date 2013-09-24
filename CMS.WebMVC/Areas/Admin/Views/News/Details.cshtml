@@ -1,0 +1,103 @@
+﻿@using CMS.WebMVC;
+@model CMS.Entities.ServerObjects.News
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>News</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.MenuCategory.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MenuCategory.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+
+
+    <div class="display-label">
+          @Html.DisplayNameFor(model => model.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayImageFor(modelItem => modelItem.ImagePath, "", "", "", "", "", "80px")
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Content)
+    </div>
+    <div class="display-field">
+        @MvcHtmlString.Create(Model.Content)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Tags)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tags)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.IsActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.IsHot)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsHot)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ViewNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ViewNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PublishDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PublishDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.DateExpired)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateExpired)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Link)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Link)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GuidId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

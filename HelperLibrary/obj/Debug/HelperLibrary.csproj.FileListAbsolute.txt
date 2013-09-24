@@ -1,0 +1,4 @@
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\HelperLibrary\bin\Debug\HelperLibrary.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\HelperLibrary\bin\Debug\HelperLibrary.pdb
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\HelperLibrary\obj\Debug\HelperLibrary.dll
+E:\Project Management\ChainManagementSystem\Chain Management System\ProjectCMS\HelperLibrary\obj\Debug\HelperLibrary.pdb

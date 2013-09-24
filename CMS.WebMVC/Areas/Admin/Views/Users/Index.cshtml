@@ -1,0 +1,67 @@
+﻿@using CMS.WebMVC;
+
+@model IEnumerable<CMS.Entities.ServerObjects.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Alias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSystem)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Alias)
+        </td>      
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSystem)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.DisplayImageFor(modelItem => item.ImagePath,"","","","","","80px")
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.GuidId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GuidId}) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GuidId})
+        </td>
+    </tr>
+}
+
+</table>

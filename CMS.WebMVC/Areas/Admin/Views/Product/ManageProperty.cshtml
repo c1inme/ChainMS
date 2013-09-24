@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "AddProperty";
+}
+@model IEnumerable<CMS.WebMVC.AddPropertyModels>
+
+<h2>AddProperty</h2>
+
+@using (Html.BeginForm("CreateProperty", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>MenuCategory</legend>
+        <table>
+            <tr>
+                <th>
+                    @MvcHtmlString.Create("Select");
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameProperty)
+                </th>
+                <th>
+                    @MvcHtmlString.Create("Thông tin");
+                </th>
+            </tr>
+            @{
+    int counter = 0;
+    foreach (var item in Model)
+    {
+      
+               
+                <tr>
+                    <td>
+                        @Html.CheckBox("[" + @counter + "].IsCheck", item.IsCheck)
+                        @*<input type="checkbox" name="[@counter].IsCheck" value="@item.IsCheck"/>*@
+                        <input type="hidden" name="[@counter].GuidProperty" value="@item.GuidProperty"/>
+                        <input type="hidden" name="[@counter].IdBelong" value="@item.IdBelong"/>
+                        <input type="hidden" name="[@counter].Dicriminator" value="@item.Dicriminator"/>
+                    </td>
+                    <td>
+                        @MvcHtmlString.Create(item.NameProperty)
+                    </td>
+                    <td>
+                        @Html.TextBox("[" + @counter + "].ValueProperty", item.ValueProperty)
+                    </td>
+
+
+
+                    @*    @Html.HiddenFor(modelItem => item.GuidProperty)
+                    @Html.HiddenFor(modelItem => item.IdBelong)*@
+
+                </tr>
+        counter++;
+    }
+            }
+        </table>
+        <p />
+        <p />
+        <input type="submit" value="Save" />
+
+    </fieldset>
+}
+<div>
+     @Html.ActionLink("Details", "Details", new { id=Model.FirstOrDefault().IdBelong}) |
+    @Html.ActionLink("Back to List", "Index")
+</div>

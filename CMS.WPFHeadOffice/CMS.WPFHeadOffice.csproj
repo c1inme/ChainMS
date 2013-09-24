@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2BA3B41-254D-4859-AD70-C8077ABA3B25}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMS.WPFHeadOffice</RootNamespace>
+    <AssemblyName>CMS.WPFHeadOffice</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons\activesync.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ContentExample\BingImage.cs" />
+    <Compile Include="ContentExample\FlickrImageLoader.cs" />
+    <Compile Include="ContentExample\LoremIpsumLoader.cs" />
+    <Compile Include="ContentExample\SampleDisabledCommand.cs" />
+    <Compile Include="ContentExample\SampleFormViewModel.cs" />
+    <Compile Include="ContentExample\SampleMsgBoxCommand.cs" />
+    <Compile Include="ContentExample\SampleParameterCommand.cs" />
+    <Compile Include="Content\ContentLoaderImages.xaml.cs">
+      <DependentUpon>ContentLoaderImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ContentLoaderIntro.xaml.cs">
+      <DependentUpon>ContentLoaderIntro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsModernBBCodeBlock.xaml.cs">
+      <DependentUpon>ControlsModernBBCodeBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsModernButton.xaml.cs">
+      <DependentUpon>ControlsModernButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsModernDialog.xaml.cs">
+      <DependentUpon>ControlsModernDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsModernFrame.xaml.cs">
+      <DependentUpon>ControlsModernFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsModernMenu.xaml.cs">
+      <DependentUpon>ControlsModernMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsModernWindow.xaml.cs">
+      <DependentUpon>ControlsModernWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsStylesButton.xaml.cs">
+      <DependentUpon>ControlsStylesButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsStylesDataGrid.xaml.cs">
+      <DependentUpon>ControlsStylesDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsStylesItemsControl.xaml.cs">
+      <DependentUpon>ControlsStylesItemsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsStylesProgressBar.xaml.cs">
+      <DependentUpon>ControlsStylesProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsStylesSampleForm.xaml.cs">
+      <DependentUpon>ControlsStylesSampleForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsStylesSlider.xaml.cs">
+      <DependentUpon>ControlsStylesSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ControlsStylesText.xaml.cs">
+      <DependentUpon>ControlsStylesText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\LoremIpsum.xaml.cs">
+      <DependentUpon>LoremIpsum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\LoremIpsumList.xaml.cs">
+      <DependentUpon>LoremIpsumList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\LoremIpsumSplit.xaml.cs">
+      <DependentUpon>LoremIpsumSplit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ModernFrame\CancelNavigateSample.xaml.cs">
+      <DependentUpon>CancelNavigateSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ModernFrame\ErrorSample.xaml.cs">
+      <DependentUpon>ErrorSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ModernFrame\Sample.xaml.cs">
+      <DependentUpon>Sample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\SettingsAppearance.xaml.cs">
+      <DependentUpon>SettingsAppearance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\SettingsAppearanceViewModel.cs" />
+    <Compile Include="Utility\DataErrorInfoSupport.cs" />
+    <Compile Include="Utility\FLabel.cs" />
+    <Compile Include="Utility\Enums.cs" />
+    <Compile Include="ViewModels\Base\BaseEntityViewModel.cs" />
+    <Compile Include="ViewModels\Base\BaseViewEntityCollection.cs" />
+    <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\UsersViewModel.cs" />
+    <Compile Include="Views\FormGroupCustomerSupplier.xaml.cs">
+      <DependentUpon>FormGroupCustomerSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupCustomer.xaml.cs">
+      <DependentUpon>GroupCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListGroupCustomerSupplier.xaml.cs">
+      <DependentUpon>ListGroupCustomerSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersForm.xaml.cs">
+      <DependentUpon>UsersForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ContentLoader.xaml.cs">
+      <DependentUpon>ContentLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ControlsModern.xaml.cs">
+      <DependentUpon>ControlsModern.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ControlsStyles.xaml.cs">
+      <DependentUpon>ControlsStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Introduction.xaml.cs">
+      <DependentUpon>Introduction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LayoutBasic.xaml.cs">
+      <DependentUpon>LayoutBasic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LayoutList.xaml.cs">
+      <DependentUpon>LayoutList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LayoutSplit.xaml.cs">
+      <DependentUpon>LayoutSplit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LayoutTab.xaml.cs">
+      <DependentUpon>LayoutTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LayoutWireframe.xaml.cs">
+      <DependentUpon>LayoutWireframe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Navigation.xaml.cs">
+      <DependentUpon>Navigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Specialized\Formtemplate.xaml.cs">
+      <DependentUpon>Formtemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\LanguageXml.cs" />
+    <Page Include="Assets\appbar.add.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.adobe.bridge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.arrow.collapsed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.arrow.corner.up.right.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.arrow.down.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.arrow.expand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.box.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.camera.flash.off.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.camera.flash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.camera.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.cards.club.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.cards.diamond.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.cards.heart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.cards.spade.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\appbar.check.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ModernUI.BingImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ModernUI.HelloKitty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ModernUI.Love.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ModernUI.Snowflakes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ContentLoaderImages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ContentLoaderIntro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsModernBBCodeBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsModernButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsModernDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsModernFrame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsModernMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsModernWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsStylesButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsStylesDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsStylesItemsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsStylesProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsStylesSampleForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsStylesSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ControlsStylesText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\LoremIpsum.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\LoremIpsumList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\LoremIpsumSplit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ModernFrame\CancelNavigateSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ModernFrame\ErrorSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ModernFrame\Sample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\SettingsAppearance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FormGroupCustomerSupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListGroupCustomerSupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\ContentLoader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ControlsModern.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ControlsStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Introduction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\LayoutBasic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\LayoutList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\LayoutSplit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\LayoutTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\LayoutWireframe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Specialized\Formtemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CMS.Entities.Entities.News.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\background.kitty.png" />
+    <Resource Include="Assets\background.love.jpg" />
+    <Resource Include="Assets\background.snowflakes.jpg" />
+    <Resource Include="Icons\ChainMS.ico" />
+    <Resource Include="Icons\activesync.ico" />
+    <Resource Include="Icons\IconApps\secure-payment.png" />
+    <Resource Include="Icons\IconApps\accept_database.png" />
+    <Resource Include="Icons\IconApps\add_home.png" />
+    <Resource Include="Icons\IconApps\add_to_shopping_cart.png" />
+    <Resource Include="Icons\IconApps\add_user.png" />
+    <Resource Include="Icons\IconApps\attachment.png" />
+    <Resource Include="Icons\IconApps\attach_document.png" />
+    <Resource Include="Icons\IconApps\back.png" />
+    <Resource Include="Icons\IconApps\briefcase.png" />
+    <Resource Include="Icons\IconApps\business_user.png" />
+    <Resource Include="Icons\IconApps\button-check_red.png" />
+    <Resource Include="Icons\IconApps\cart_button_55.png" />
+    <Resource Include="Icons\IconApps\cart_button_555.png" />
+    <Resource Include="Icons\IconApps\cash.png" />
+    <Resource Include="Icons\IconApps\CashU.png" />
+    <Resource Include="Icons\IconApps\Chart_2.png" />
+    <Resource Include="Icons\IconApps\chart.png" />
+    <Resource Include="Icons\IconApps\chart_down.png" />
+    <Resource Include="Icons\IconApps\chart_pie.png" />
+    <Resource Include="Icons\IconApps\chart_up.png" />
+    <Resource Include="Icons\IconApps\Chat.png" />
+    <Resource Include="Icons\IconApps\check_512.png" />
+    <Resource Include="Icons\IconApps\Cirrus.png" />
+    <Resource Include="Icons\IconApps\cloud_comment.png" />
+    <Resource Include="Icons\IconApps\comments.png" />
+    <Resource Include="Icons\IconApps\Contact.png" />
+    <Resource Include="Icons\IconApps\CreditCard_Cirrus.png" />
+    <Resource Include="Icons\IconApps\Database %282%29.png" />
+    <Resource Include="Icons\IconApps\Delicious.png" />
+    <Resource Include="Icons\IconApps\discount.png" />
+    <Resource Include="Icons\IconApps\Document.png" />
+    <Resource Include="Icons\IconApps\dollar_coin.png" />
+    <Resource Include="Icons\IconApps\dollar_currency_sign.png" />
+    <Resource Include="Icons\IconApps\Edit_No.png" />
+    <Resource Include="Icons\IconApps\edit_page.png" />
+    <Resource Include="Icons\IconApps\edit_profile.png" />
+    <Resource Include="Icons\IconApps\Edit_Yes.png" />
+    <Resource Include="Icons\IconApps\empty-shopping-cart-icon_pink.png" />
+    <Resource Include="Icons\IconApps\empty-shopping-cart-icon_purple.png" />
+    <Resource Include="Icons\IconApps\empty-shopping-cart-icon_teal.png" />
+    <Resource Include="Icons\IconApps\empty-shopping-cart-icon_yellow.png" />
+    <Resource Include="Icons\IconApps\flag.png" />
+    <Resource Include="Icons\IconApps\Expenditure.png" />
+    <Resource Include="Icons\IconApps\Revenue.png" />
+    <Resource Include="Icons\IconApps\id_card.png" />
+    <Resource Include="Icons\IconApps\image.png" />
+    <Resource Include="Icons\IconApps\Info %282%29.png" />
+    <Resource Include="Icons\IconApps\mastercard_128.png" />
+    <Resource Include="Icons\IconApps\MySpace.png" />
+    <Resource Include="Icons\IconApps\new.png" />
+    <Resource Include="Icons\IconApps\Notepad.png" />
+    <Resource Include="Icons\IconApps\paypal_256.png" />
+    <Resource Include="Icons\IconApps\pound_coin.png" />
+    <Resource Include="Icons\IconApps\Print.png" />
+    <Resource Include="Icons\IconApps\printer.png" />
+    <Resource Include="Icons\IconApps\Refresh.png" />
+    <Resource Include="Icons\IconApps\remove_from_shopping_basket.png" />
+    <Resource Include="Icons\IconApps\remove_from_shopping_cart.png" />
+    <Resource Include="Icons\IconApps\route.png" />
+    <Resource Include="Icons\IconApps\Safe.png" />
+    <Resource Include="Icons\IconApps\save.png" />
+    <Resource Include="Icons\IconApps\search_user.png" />
+    <Resource Include="Icons\IconApps\security.png" />
+    <Resource Include="Icons\IconApps\Send_Mail.png" />
+    <Resource Include="Icons\IconApps\Shopping Cart.png" />
+    <Resource Include="Icons\IconApps\shopping_basket_accept.png" />
+    <Resource Include="Icons\IconApps\shopping_basket_info.png" />
+    <Resource Include="Icons\IconApps\Shopping_Cart %282%29.png" />
+    <Resource Include="Icons\IconApps\shopping_cart.png" />
+    <Resource Include="Icons\IconApps\shopping_cart_accept.png" />
+    <Resource Include="Icons\IconApps\Shopping_Cart_Add.png" />
+    <Resource Include="Icons\IconApps\Shopping_Cart_Remove.png" />
+    <Resource Include="Icons\IconApps\Speech_Bubble.png" />
+    <Resource Include="Icons\IconApps\Stop.png" />
+    <Resource Include="Icons\IconApps\stopwatch.png" />
+    <Resource Include="Icons\IconApps\support.png" />
+    <Resource Include="Icons\IconApps\Tag %282%29.png" />
+    <Resource Include="Icons\IconApps\tag.png" />
+    <Resource Include="Icons\IconApps\Tag_add.png" />
+    <Resource Include="Icons\IconApps\Tag_remove.png" />
+    <Resource Include="Icons\IconApps\upload.png" />
+    <Resource Include="Icons\IconApps\USB.png" />
+    <Resource Include="Icons\IconApps\Users_Chat.png" />
+    <Resource Include="Icons\IconApps\Users_Group.png" />
+    <Resource Include="Icons\IconApps\User_add.png" />
+    <Resource Include="Icons\IconApps\User_delete.png" />
+    <Resource Include="Icons\IconApps\Warning %282%29.png" />
+    <Resource Include="Icons\IconApps\waste.png" />
+    <Resource Include="Icons\IconApps\wire_transfer_128.png" />
+    <Resource Include="Icons\IconApps\download_database.png" />
+    <Resource Include="Icons\IconApps\CustomerGroup.png" />
+    <Resource Include="Icons\IconApps\GroupCustomer.png" />
+    <Resource Include="Icons\IconApps\Customer.png" />
+    <Resource Include="Icons\IconApps\User_2.png" />
+    <Resource Include="Icons\IconApps\Goods.png" />
+    <Resource Include="Icons\IconApps\package.png" />
+    <Resource Include="Icons\IconApps\WareHouse.png" />
+    <Resource Include="Icons\IconApps\ImportExcept.png" />
+    <Resource Include="Icons\IconApps\ExportExcept.png" />
+    <Resource Include="Icons\IconApps\PaymentMethod.png" />
+    <Resource Include="Icons\IconApps\calendar.png" />
+    <Resource Include="Icons\IconApps\BankAccount.png" />
+    <Resource Include="Icons\IconApps\Employee.png" />
+    <Resource Include="Icons\IconApps\map_info.png" />
+    <Resource Include="Icons\IconApps\PurchaseOrder.png" />
+    <Resource Include="Icons\IconApps\Export.png" />
+    <Resource Include="Icons\IconApps\Iimport.png" />
+    <Resource Include="Icons\IconApps\BackArrow.png" />
+    <Resource Include="Icons\IconApps\Quotations.png" />
+    <Resource Include="Icons\IconApps\receipt.png" />
+    <Resource Include="Icons\IconApps\data_transfer.png" />
+    <Resource Include="Icons\IconApps\PurchaseOrderChart.png" />
+    <Resource Include="Icons\IconApps\InvoiceReport.png" />
+    <Resource Include="Icons\IconApps\SaleReport.png" />
+    <Resource Include="Icons\IconApps\Stock.png" />
+    <Resource Include="Icons\IconApps\GenneralReopor.png" />
+    <Resource Include="Icons\IconApps\check_48.png" />
+    <Resource Include="Icons\IconApps\cancel_button_fewer.png" />
+    <Resource Include="Icons\IconApps\add.png" />
+    <Resource Include="Icons\IconApps\erase.png" />
+    <Resource Include="Icons\IconApps\update.png" />
+    <Content Include="Libs\Microsoft.Windows.Shell.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CMS.Entities\CMS.Entities.csproj">
+      <Project>{bcd13c63-8690-45db-bfa0-4439e057eda0}</Project>
+      <Name>CMS.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CMS.Kernel\CMS.Kernel.csproj">
+      <Project>{f139a473-41af-4b84-8339-03afcb479d67}</Project>
+      <Name>CMS.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CMS.WCFService\CMS.WCFService.csproj">
+      <Project>{8c7dfdbb-aff5-4bb9-9132-9799d4526763}</Project>
+      <Name>CMS.WCFService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlLibrary\ControlLibrary.csproj">
+      <Project>{b8812303-4008-4b42-984c-579d0ad8d6f1}</Project>
+      <Name>ControlLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fluent\Fluent dotNET 4.5.csproj">
+      <Project>{4c92fcf4-3561-499f-bc5b-f2f089863047}</Project>
+      <Name>Fluent dotNET 4.5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelperLibrary\HelperLibrary.csproj">
+      <Project>{5effdc7d-0b2d-4765-8a2e-adf2c457f818}</Project>
+      <Name>HelperLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BlackTheme.png" />
+    <Resource Include="Images\BlueTheme.png" />
+    <Resource Include="Images\Bold.png" />
+    <Resource Include="Images\Box.png" />
+    <Resource Include="Images\ChangeCase.png" />
+    <Resource Include="Images\ClearFormatting.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\Cut.png" />
+    <Resource Include="Images\Default.png" />
+    <Resource Include="Images\Exit.png" />
+    <Resource Include="Images\FontColor.png" />
+    <Resource Include="Images\FormatPainter.png" />
+    <Resource Include="Images\GalleryLarge.png" />
+    <Resource Include="Images\GrowFont.png" />
+    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\Italic.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\PasteFormating.png" />
+    <Resource Include="Images\PasteImage.png" />
+    <Resource Include="Images\PasteLarge.png" />
+    <Resource Include="Images\PasteSourceFormating.png" />
+    <Resource Include="Images\PasteText.png" />
+    <Resource Include="Images\PasteTextOnly.png" />
+    <Resource Include="Images\SampleImageForScreenTip.png" />
+    <Resource Include="Images\Save.png" />
+    <Resource Include="Images\ShrinkFont.png" />
+    <Resource Include="Images\SilverTheme.png" />
+    <Resource Include="Images\Strikethrough.png" />
+    <Resource Include="Images\Subscript.png" />
+    <Resource Include="Images\Superscript.png" />
+    <Resource Include="Images\Test16.png" />
+    <Resource Include="Images\Test32.png" />
+    <Resource Include="Images\TextEffects.png" />
+    <Resource Include="Images\TextHighlightColor.png" />
+    <Resource Include="Images\Underline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Languages\en.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Languages\vn.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

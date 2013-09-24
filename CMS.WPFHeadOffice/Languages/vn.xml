@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VietNam>
+  <Item Name="AddUpdateProjectWindow_DoublonMessages">Some codes or descriptions are listed several times.</Item>
+  <Item name="General_Title">Quản lý chuỗi bán hàng</Item>
+  <Item name="General_Ok">Ok</Item>
+  <Item name="General_Save">Lưu</Item>
+  <Item name="General_Cancel">Hủy</Item>
+  <Item name="General_Send">Gửi</Item>
+  <Item name="General_Yes">Yes</Item>
+  <Item name="General_No">No</Item>
+  <Item name="General_Back">Trở về</Item>
+  <Item name="General_New">Tạo mới</Item>
+  <Item name="General_Close">Đóng</Item>
+  <Item name="General_Update">Cập nhật</Item>
+  <Item name="General_Delete">Xóa</Item>
+  <Item name="General_Edit">Chỉnh sửa</Item>
+  <Item name="General_Refresh">Làm mới</Item>
+  <Item name="General_Required">Trường dữ liệu bắt buộc</Item>
+  <Item name="General_TitleConfirm">Thông báo xác nhận</Item>
+  <Item name="General_CodeDupplicate">Mã đã tồn tại, vui lòng sử dụng mã khác</Item>
+  <Item name="General_ConfirmMessage">Bạn chắc chắn muốn xóa dữ liệu này ?</Item>
+  <Item name="ModernDialog_ErrorDetails">Chi tiết lỗi</Item>
+
+  <Item name="LogOut">Thoát</Item>
+  <Item name="EditInfo">Thông tin</Item>
+  <Item name="BetweenLength">Độ dài cho phép từ {0} --> {1}</Item>
+  <Item name="EmailInValid">Email nhập sai, vui lòng kiểm tra lại</Item>
+
+
+  <Item name="Ribbon_Home">Trang chủ</Item>
+  <Item name="Ribbon_Category">Danh mục</Item>
+  <Item name="Ripbon_PurchaseOrder">Mua hàng</Item>
+  <Item name="Ripbon_WareHouse">Kho hàng</Item>
+  <Item name="Ripbon_revenueExpenditure">Thu chi</Item>
+  <Item name="Ripbon_Sale">Bán Hàng</Item>
+  <Item name="Ripbon_Report">Báo cáo</Item>
+  <Item name="Ripbon_System">Hệ thống</Item>
+  <Item name="Ripbon_Help">Trợ giúp</Item>
+
+  <Item name="Ribbon_Category_GroupCustomerSupplier">Khách hàng, Nhà Cung Cấp</Item>
+  <Item name="Ribbon_Category_GroupCustomer">Nhóm Khách hàng</Item>
+  <Item name="Ribbon_Category_Customer">Khách hàng</Item>
+  <Item name="Ribbon_Category_GroupSupplier">Nhóm nhà cung cấp</Item>
+  <Item name="Ribbon_Category_Supplier">Nhà cung cấp</Item>
+
+  <Item name="Ribbon_Category_HierarchicalGoods">Phân cấp hàng hóa</Item>
+  <Item name="Ribbon_Category_Goods">Hàng hóa</Item>
+  <Item name="Ribbon_Category_FirstInventory">Hàng tồn đầu kỳ</Item>
+  <Item name="Ribbon_Category_WareHouse">Kho Hàng</Item>
+
+  <Item name="Ribbon_Category_ExceptRevenue">Thu khác</Item>
+  <Item name="Ribbon_Category_ExceptExpenditure">Chi khác</Item>
+  <Item name="Ribbon_Category_ExceptImport">Nhập khác</Item>
+  <Item name="Ribbon_Category_ExceptExport">Xuất khác</Item>
+
+  <Item name="Ribbon_Category_CurrencyUnit">Đơn vị tiền tệ</Item>
+  <Item name="Ribbon_Category_MethodPayment">Phương thức thanh toán</Item>
+  <Item name="Ribbon_Category_PeriodPayment">Kỳ hạn thanh toán</Item>
+  <Item name="Ribbon_Category_BankAccount">Tài khoản ngân hàng</Item>
+
+  <Item name="Ribbon_Category_Employee">Nhân viên</Item>
+  <Item name="Ribbon_Category_Places">Địa điểm</Item>
+
+  <Item name="Ripbon_PurchaseOrder_NewOrderTicket">Phiếu đặt hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_NewImportTicket">Phiếu nhập hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_NewReturnItemTicket">Phiếu xuất trả hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_NewExpenditureTicket">Phiếu chi tiền</Item>
+
+  <Item name="Ripbon_PurchaseOrder_ListOrderTicket">Phiếu đặt hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_ListImportTicket">Phiếu nhập hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_ListReturnItemTicket">Phiếu xuất trả hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_ListExpenditureTicket">Phiếu chi tiền</Item>
+
+  <Item name="Ripbon_PurchaseOrder_ReportOrderTicket">Phiếu đặt hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_ReportImportTicket">Phiếu nhập hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_ReportReturnItemTicket">Phiếu xuất trả hàng</Item>
+  <Item name="Ripbon_PurchaseOrder_ReportExpenditureTicket">Phiếu chi tiền</Item>
+
+  <Item name="Ripbon_WareHouse_NewTransferItemTicket">Phiếu chuyển kho</Item>
+  <Item name="Ripbon_WareHouse_NewExceptImportTicket">Phiếu nhập khác</Item>
+  <Item name="Ripbon_WareHouse_NewExceptExportTicket">Phiếu xuất khác</Item>
+  <Item name="Ripbon_WareHouse_NewCheckItemTicket">Phiếu kiểm kho</Item>
+
+  <Item name="Ripbon_WareHouse_ListInventory">Thống kê hàng tồn</Item>
+  <Item name="Ripbon_WareHouse_ListTransferItemTicket">Phiếu chuyển kho</Item>
+  <Item name="Ripbon_WareHouse_ListExceptExportTicket">Phiếu xuất khác</Item>
+  <Item name="Ripbon_WareHouse_ListExceptImportTicket">Phiếu nhập khác</Item>
+
+  <Item name="Ripbon_Sale_NewQuotationTicket">Phiếu báo giá</Item>
+  <Item name="Ripbon_Sale_NewOrderSaleTicket">Phiếu đặt hàng</Item>
+  <Item name="Ripbon_Sale_NewExportItemTicket">Phiếu xuất hàng</Item>
+  <Item name="Ripbon_Sale_NewImportBackTicket">Phiếu nhập trả hàng</Item>
+  <Item name="Ripbon_Sale_NewtReciptTicket">Phiếu thu tiền</Item>
+
+  <Item name="Ripbon_Sale_ListQuotationTicket">Phiếu báo giá</Item>
+  <Item name="Ripbon_Sale_ListOrderSaleTicket">Phiếu đặt hàng</Item>
+  <Item name="Ripbon_Sale_ListExportItemTicket">Phiếu xuất hàng</Item>
+  <Item name="Ripbon_Sale_ListImportBackTicket">Phiếu nhập trả hàng</Item>
+  <Item name="Ripbon_Sale_ListReciptTicket">Phiếu thu tiền</Item>
+
+  <Item name="Ripbon_Sale_ReportOrderSaleTicket">Phiếu đặt hàng</Item>
+  <Item name="Ripbon_Sale_ReportExportItemTicket">Phiếu xuất hàng</Item>
+  <Item name="Ripbon_Sale_ReportImportBackTicket">Phiếu nhập trả hàng</Item>
+  <Item name="Ripbon_Sale_ReportReciptTicket">Phiếu thu tiền</Item>
+
+  <Item name="Ripbon_revenueExpenditure_NewReceiptsTicket">Phiếu thu</Item>
+  <Item name="Ripbon_revenueExpenditure_NewPaymentTicket">Phiếu chi</Item>
+  <Item name="Ripbon_revenueExpenditure_NewTransferMoneyTicket">Phiếu luân chuyển tiền</Item>
+
+  <Item name="Ripbon_revenueExpenditure_ListReceiptsTicket">Phiếu thu</Item>
+  <Item name="Ripbon_revenueExpenditure_ListPaymentTicket">Phiếu chi</Item>
+  <Item name="Ripbon_revenueExpenditure_ListTransferMoneyTicket">Phiếu luân chuyển tiền</Item>
+
+
+  <Item name="Ripbon_Report_ReportPurchase">Mua hàng</Item>
+  <Item name="Ripbon_Report_ReportSale">Bán hàng</Item>
+  <Item name="Ripbon_Report_ReportWareHouse">Kho hàng</Item>
+  <Item name="Ripbon_Report_ReportRevenueExpenditure">Thu chi</Item>
+  <Item name="Ripbon_Report_ReportGeneral">Tổng hợp</Item>
+
+  <Item name="Key_GridGroupCustomerSupplierList">Danh sách nhóm khách hàng</Item>
+  
+  <Item name="context_AddedGroupCustomerSuplier">Thêm mới</Item>
+  <Item name="context_UpdatedGroupCustomerSuplier">Cập nhật</Item>
+  <Item name="context_DeletedGroupCustomerSuplier">Xóa</Item>
+
+
+  <Item name="Label_CodeGroupCustomerSuplier">Mã nhóm</Item>
+  <Item name="Label_NameGroupCustomerSuplier">Tên nhóm</Item>
+  <Item name="Label_DescriptionGroupCustomerSuplier">Mô tả</Item>
+  <Item name="Label_ParentCustomerSuplier">Cấp cha</Item>
+ 
+</VietNam>

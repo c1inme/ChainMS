@@ -1,0 +1,36 @@
+﻿@model CMS.Entities.ServerObjects.Language
+@using CMS.WebMVC;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Language</legend>
+      <div class="display-field">
+        @Html.DisplayImageFor(model => model.PathFlagLanguage)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CodeLanguage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CodeLanguage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NameLanguage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NameLanguage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PathFlagLanguage)
+    </div>
+  
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.GuidId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

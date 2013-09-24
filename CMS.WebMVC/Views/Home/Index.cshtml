@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+aaaaaaaaaaaaa
+<script src="@Url.Content("~/Scripts/KnockOut/knockout-2.2.1.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#StudentTree").html("");
+        $.ajax({
+            cache: false,
+            type: "POST",
+            async: false,
+            url: GetStudentsURL
+                + "/?NoOfStudents=" + NoOfStudents
+                + "&NoOfClasses=" + NoOfClasses
+                + "&NoOfExams=" + NoOfExams,
+            dataType: "json",
+            success: function (students) {
+                StudentJson = FixDateinJson(students);
+                buildStudentTree(StudentJson);
+            }
+        })});
+   
+</script>
+
+<ul data-bind="template: { name: 'seasonTemplate', foreach: seasons, as: 'season' }"></ul>
+ 
+<script type="text/html" id="seasonTemplate">
+    <li>
+        <strong data-bind="text: name"></strong>
+        <ul data-bind="template: { name: 'monthTemplate', foreach: months, as: 'month' }"></ul>
+    </li>
+</script>
+ 
+<script type="text/html" id="monthTemplate">
+    <li>
+        <span data-bind="text: month"></span>
+        is in
+        <span data-bind="text: season.name"></span>
+    </li>
+</script>
+ 
+<script>
+    var viewModel = {
+        seasons: ko.observableArray([
+            { name: 'Spring', months: [ 'March', 'April', 'May' ] },
+            { name: 'Summer', months: [ 'June', 'July', 'August' ] },
+            { name: 'Autumn', months: [ 'September', 'October', 'November' ] },
+            { name: 'Winter', months: [ 'December', 'January', 'February' ] }
+        ])
+    };
+    ko.applyBindings(viewModel);
+</script>

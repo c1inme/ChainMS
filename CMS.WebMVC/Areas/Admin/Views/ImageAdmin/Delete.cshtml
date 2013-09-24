@@ -1,0 +1,46 @@
+﻿@model CMS.Entities.ServerObjects.Image
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Image</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Discriminator)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Discriminator)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FullHdPath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullHdPath)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ThumpnailPath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ThumpnailPath)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to list", "ImageByDiscriminator", "ImageAdmin", new { Discriminator = Model.Discriminator, IdBelong = Model.IdBelong }, new object())|
+    </p>
+}

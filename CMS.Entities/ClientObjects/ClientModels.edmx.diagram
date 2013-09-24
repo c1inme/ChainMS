@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c970075859046dea0f496804f430c99" Name="Diagram1">
+        <EntityTypeShape EntityType="ChainMSModel1.Comment" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.Gallery" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.GrantPermission" Width="1.5" PointX="8" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.GroupMemberPermission" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.GroupPermission" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.Image" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.Manufacture" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.MenuCategory" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.NameDictionary" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.News" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.PermissionDefinition" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.Product" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.ProductCategory" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.Rating" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.SEOContent" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.TableLastModified" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.TraceChange" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChainMSModel1.User" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="ChainMSModel1.FK_GrantPermission_PermissionDefinition" ManuallyRouted="false" />
+        <AssociationConnector Association="ChainMSModel1.FK_GroupMemberPermission_GroupPermission" ManuallyRouted="false" />
+        <AssociationConnector Association="ChainMSModel1.FK_GroupMemberPermission_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ChainMSModel1.AccountInformation" Width="1.5" PointX="1.4484272065797947" PointY="30.444534673562522" />
+        <EntityTypeShape EntityType="ChainMSModel1.CurrencyUnit" Width="1.5" PointX="7.5327633542626931" PointY="2.1554103056692568" />
+        <EntityTypeShape EntityType="ChainMSModel1.CustomerSupplier" Width="1.5" PointX="1.3911868098150877" PointY="19.65415694734741" />
+        <EntityTypeShape EntityType="ChainMSModel1.Employee" Width="1.5" PointX="10.91432165862728" PointY="3.6648751067299745" />
+        <EntityTypeShape EntityType="ChainMSModel1.GroupCustomerSupplier" Width="1.5" PointX="0.14710620611305636" PointY="27.0077500618099" />
+        <EntityTypeShape EntityType="ChainMSModel1.IncomeExpenditure" Width="1.5" PointX="6.907828658310617" PointY="30.100463806698315" />
+        <EntityTypeShape EntityType="ChainMSModel1.LiabilitiesPeriod" Width="1.5" PointX="4.7962028592807258" PointY="21.769572178725884" />
+        <EntityTypeShape EntityType="ChainMSModel1.LocationCategory" Width="1.5" PointX="5.316392442824502" PointY="7.907721597658341" />
+        <EntityTypeShape EntityType="ChainMSModel1.Manufacturer" Width="1.5" PointX="11.22803873160297" PointY="27.64778445458402" />
+        <EntityTypeShape EntityType="ChainMSModel1.PaymentMethod" Width="1.5" PointX="3.3395199139320852" PointY="5.2083247924262306" />
+        <EntityTypeShape EntityType="ChainMSModel1.PeriodPayment" Width="1.5" PointX="0.34815272518813267" PointY="5.0753805362970477" />
+        <EntityTypeShape EntityType="ChainMSModel1.WareHouse" Width="1.5" PointX="3.0750697623356573" PointY="1.8869206616128424" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

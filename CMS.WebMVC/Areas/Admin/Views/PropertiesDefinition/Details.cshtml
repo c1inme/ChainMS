@@ -1,0 +1,29 @@
+﻿@model CMS.Entities.ServerObjects.PropertiesDefinition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PropertiesDefinition</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.NameProperty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NameProperty)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GuidId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

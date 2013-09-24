@@ -1,0 +1,72 @@
+﻿@using CMS.WebMVC;
+
+@model CMS.Entities.ServerObjects.Users
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Users</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Alias)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Alias)
+    </div>
+
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FullName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.MobileUser)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MobileUser)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.IsSystem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsSystem)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.IsApproved)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsApproved)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayImageFor(model => model.ImagePath, "", "", "", "", "", "80px")
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GuidId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

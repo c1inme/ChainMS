@@ -1,0 +1,215 @@
+﻿@using CMS.WebMVC.Areas.Admin;
+@model CMS.Entities.ServerObjects.Product
+@using CMS.WebMVC;
+@{
+    ViewBag.Title = "Details";
+}
+@helper GenProperty(IEnumerable<CMS.WebMVC.AddPropertyModels> model)
+{
+    if (model != null && model.Count() > 0)
+    {
+    <table>
+        <tr>
+            <th colspan="2">
+                @MvcHtmlString.Create("Chi tiết")
+            </th>
+        </tr>
+        @foreach (var item in model)
+        {
+      
+               
+            <tr>
+                <td>
+                    @MvcHtmlString.Create("<Strong>" + item.NameProperty + "</Strong>")
+                </td>
+                <td>
+                    @MvcHtmlString.Create(item.ValueProperty)
+                    @*@Html.TextBox("[" + @counter + "].ValueProperty", item.ValueProperty)*@
+                </td>
+
+                @*    @Html.HiddenFor(modelItem => item.GuidProperty)
+                    @Html.HiddenFor(modelItem => item.IdBelong)*@
+
+            </tr>
+        }
+    </table>
+    }
+}
+
+
+@helper Genimage(IEnumerable<CMS.Entities.ServerObjects.Image> model)
+{
+    <table>
+
+        @foreach (var item in model)
+        {
+      
+               
+            <tr>
+                <td>
+                    @ImageHelpers.DisplayImage(item.FullHdPath, "", "", "", "", "", "160px")
+                </td>
+                <td>
+                    @*@Html.TextBox("[" + @counter + "].ValueProperty", item.ValueProperty)*@
+                </td>
+
+                @*    @Html.HiddenFor(modelItem => item.GuidProperty)
+                    @Html.HiddenFor(modelItem => item.IdBelong)*@
+
+            </tr>
+        }
+    </table>
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div style="clear: both">
+        @* @Html.DisplayImageFor(model => model.ImagePath, "", "", "", "", "", "160px")*@
+        @Html.Partial("ViewImageZoom", Model.ListImage)
+    </div>
+    <div class="ColumnNews">
+
+        @*<div >
+           @Genimage(Model.ListImage.ToList())
+        </div>*@
+        <table>
+
+            <tr>
+                <th colspan="3">
+                    @MvcHtmlString.Create("Thông tin sản phẩm")
+                </th>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Mã sp")
+                    @*@Html.DisplayNameFor(model => model.Code)*@
+                </td>
+                <td colspan="2">
+                    @Html.DisplayFor(model => model.Code)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Tên sp")
+                    @*@Html.DisplayNameFor(model => model.Name)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Giá mua")
+                    @*@Html.DisplayNameFor(model => model.BuyPrice)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.BuyPrice)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Giá bán")
+                    @*@Html.DisplayNameFor(model => model.SellPrice)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SellPrice)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Danh mục")
+                    @*@Html.DisplayNameFor(model => model.ProductCategory.Name)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ProductCategory.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Nhà sản xuất")
+                    @*@Html.DisplayNameFor(model => model.Manufacture.Name)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Manufacture.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Lượng hàng tồn")
+                    @*@Html.DisplayNameFor(model => model.Manufacture.Name)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Stock)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Số lượng khả dụng")
+                    @*@Html.DisplayNameFor(model => model.Manufacture.Name)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CurrentStock)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Đánh giá")
+                    @*@Html.DisplayNameFor(model => model.Manufacture.Name)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Rating)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label">
+                    @MvcHtmlString.Create("Khả dụng")
+                    @*@Html.DisplayNameFor(model => model.Manufacture.Name)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.IsAvailable.Value)
+                </td>
+            </tr>
+            <tr>
+                <td class="display-label" colspan="2">
+                    @MvcHtmlString.Create("Mô tả")
+                    @*@Html.DisplayNameFor(model => model.Manufacture.Name)*@
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @Html.DisplayFor(model => model.Description)
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="ColumnNews">
+        @GenProperty(ViewBag.AddPropertyModels as IEnumerable<CMS.WebMVC.AddPropertyModels>)
+    </div>
+
+    <div style="clear: both">
+        @if (Model.ListNews != null && Model.ListNews.Count > 0)
+        {
+        
+         CMS.Entities.ServerObjects.News it =   Model.ListNews.FirstOrDefault();
+         @MvcHtmlString.Create("<p> <Strong>Bài đánh giá </Strong></p>");   
+         @MvcHtmlString.Create(it.Content);
+         @Html.ActionLink("Edit news", "EditNewsForProduct", "News", new {id= it.GuidId }, new object())
+        }
+        else
+        {
+            @Html.ActionLink("Create news", "CreateNewsForProduct", "News", new { Discriminator = "Product", IdBelong = Model.GuidId }, new object())
+        }
+    </div>
+</fieldset>
+
+<p>
+
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GuidId }) |
+     @Html.ActionLink("Manage property", "ManageProperty", new { id = Model.GuidId }) |
+    @Html.ActionLink("Manage images", "ImageByDiscriminator", "ImageAdmin", new { Discriminator = "Product", IdBelong = Model.GuidId }, new object())|
+    @Html.ActionLink("Back to List", "Index")
+</p>

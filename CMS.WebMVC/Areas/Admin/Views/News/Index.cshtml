@@ -1,0 +1,123 @@
+﻿@using CMS.WebMVC;
+@functions
+{ 
+    public int getLevel(CMS.Entities.ServerObjects.MenuCategory item, int currentLevel = 0)
+    {
+        if (item.ParentId != null)
+            currentLevel = getLevel(item.ParentMenuCategory, ++currentLevel);
+        return currentLevel;
+    }
+}
+@model IEnumerable<CMS.Entities.ServerObjects.MenuCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*@model IEnumerable<CMS.Entities.ServerObjects.News>
+
+@{
+    ViewBag.Title = "Index";
+}*@
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @MvcHtmlString.Create("Menu")
+        </th>
+        <th>
+            @MvcHtmlString.Create("Title")
+        </th>
+
+        <th>
+            @MvcHtmlString.Create("Image")
+        </th>
+        <th>
+            @MvcHtmlString.Create("Description")
+        </th>
+
+        <th>
+            @MvcHtmlString.Create("Date expired")
+        </th>
+        <th></th>
+    </tr>
+    @GenHTML(Model)
+
+    @helper GenHTML(IEnumerable<CMS.Entities.ServerObjects.MenuCategory> models)
+{
+    foreach (var item in models)
+    {
+        if (item.ListMenuCategory != null && item.ListMenuCategory.Count > 0)
+        {
+        @CreateGrid(item)
+        @GenHTML(item.ListMenuCategory)
+        }
+        else
+        {
+        @CreateGrid(item)
+        }
+    }
+    }
+
+    @helper CreateGrid(CMS.Entities.ServerObjects.MenuCategory item)
+{
+        <tr>
+            <td style="font-weight: bold; background-color: chocolate; color: white;" colspan="6">
+
+                @{
+                    int levelC = getLevel(item, 0);
+                    for (int i = 0; i < levelC; i++)
+                    {
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    }
+                    
+                    @MvcHtmlString.Create("- ")
+                    @Html.DisplayFor(modelItem => item.Name)
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                }
+            </td>
+        </tr>
+    if (item.ListNews != null && item.ListNews.Count > 0)
+    {
+        @CreateGridChildren(item.ListNews)
+    }
+   
+    }
+    @helper CreateGridChildren(IEnumerable<CMS.Entities.ServerObjects.News> models)
+{
+    foreach (var item in models)
+    {
+        <tr>
+            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @Html.DisplayImageFor(modelItem => item.ImagePath, "", "", "", "", "", "80px")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateExpired)
+            </td>
+            <td>
+               
+                @Html.ActionLink("Edit", "Edit", new { id = item.GuidId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GuidId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GuidId })
+            </td>
+        </tr>
+    }
+    }
+</table>

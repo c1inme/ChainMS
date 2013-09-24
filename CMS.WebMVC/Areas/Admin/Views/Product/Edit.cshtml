@@ -1,0 +1,215 @@
+﻿@using CMS.WebMVC.Areas.Admin
+@using CMS.WebMVC;
+@{
+    ViewBag.Title = "Edit Product category";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@helper TreeView(List<CMS.Entities.ServerObjects.ProductCategory> menus, string guidParent)
+{
+    if (menus == null || menus.Count() == 0)
+    {
+        return;
+    }
+
+    foreach (var item in menus)
+    {
+    <li>
+        @if (item.ListProductCategory == null || item.ListProductCategory.Count == 0)
+        {
+            string idLeaf = item.GuidId == Guid.Empty ? "" : item.GuidId.ToString();
+            if (guidParent.ToLower() == item.GuidId.ToString().ToLower())
+            {
+            <span class="leaf" id="@idLeaf" style="font-weight:bold;">@item.Name</span> 
+            }
+            else
+            {
+            <span class="leaf" id="@idLeaf">@item.Name</span> 
+            }
+        }
+        else
+        {
+
+            string idFolder = item.GuidId == Guid.Empty ? "" : item.GuidId.ToString();
+            if (guidParent.ToLower() == item.GuidId.ToString().ToLower())
+            {<span class="folder" id="@idFolder"  style="font-weight:bold;">@item.Name</span>
+            }
+            else
+            {
+            <span class="folder" id="@idFolder">@item.Name</span>
+            }
+            <ul>
+                @TreeView(item.ListProductCategory == null ? null : item.ListProductCategory.ToList(), guidParent)
+            </ul>
+        }
+    </li>
+    }
+}
+
+@model CMS.Entities.ServerObjects.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm(Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))) 
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Product</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Code)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Code)
+            @Html.ValidationMessageFor(model => model.Code)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductCategoryId, "Product Category")
+        </div>
+        <div class="editor-field">
+           <ul id="continentFolders" class="filetree treeview-famfamfam">
+                @TreeView(ViewBag.ListProductcategory as List<CMS.Entities.ServerObjects.ProductCategory>, Model.ProductCategoryId.ToString())
+            </ul>
+            @Html.ValidationMessageFor(model => model.ProductCategoryId)
+        </div>
+        @Html.HiddenFor(model => model.ProductCategoryId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SellPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SellPrice)
+            @Html.ValidationMessageFor(model => model.SellPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BuyPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BuyPrice)
+            @Html.ValidationMessageFor(model => model.BuyPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManufactureId, "Manufacture")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ManufactureId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ManufactureId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CurrentStock)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CurrentStock)
+            @Html.ValidationMessageFor(model => model.CurrentStock)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Stock)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Stock)
+            @Html.ValidationMessageFor(model => model.Stock)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsAvailable)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsAvailable)
+            @Html.ValidationMessageFor(model => model.IsAvailable)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rating)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rating)
+            @Html.ValidationMessageFor(model => model.Rating)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImagePath)
+        </div>
+        <div class="editor-field">
+           @Html.EditImageFor(model => model.ImagePath, "Picture", "Picture")
+            @Html.ValidationMessageFor(model => model.ImagePath)
+        </div>
+
+        @Html.HiddenFor(model => model.GuidId)
+        @Html.HiddenFor(model => model.VersionNumber)
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-previewimage.js")" type="text/javascript"></script>
+
+<link href="@Url.Content("~/Scripts/jquery.treeview/jquery.treeview.css")" rel="stylesheet" type="text/css"/>
+<script src="@Url.Content("~/Scripts/jquery.treeview/jquery.treeview.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // $.noConflict(true);
+        $('#continentFolders').treeview({ collapsed: false });
+        $(".leaf").click(function () {
+            var val = $(this).attr("id");
+            var currenttag = $(this);
+            $("#ProductCategoryId")[0].value = val;
+            $(".leaf").each(function () { $(this).css("font-weight", "normal"); }
+                )
+            $(".folder").each(function () { $(this).css("font-weight", "normal"); }
+               )
+            currenttag.css("font-weight", "bold");
+        })
+
+        $(".folder").click(function () {
+
+            var val = $(this).attr("id");
+            var currenttag = $(this);
+            $("#ProductCategoryId")[0].value = val;
+            $(".leaf").each(function () { $(this).css("font-weight", "normal"); }
+                )
+            $(".folder").each(function () { $(this).css("font-weight", "normal"); }
+               )
+            currenttag.css("font-weight", "bold");
+        })
+    });
+</script>

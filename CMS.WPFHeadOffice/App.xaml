@@ -1,0 +1,22 @@
+﻿<Application x:Class="CMS.WPFHeadOffice.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml" >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/CMS.WPFHeadOffice;component/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="/ControlLibrary;component/Assets/ModernUI.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Assets/ModernUI.Light.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/TransitioningContentControl.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/BBCodeBlock.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/ModernButton.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/ModernDialog.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/ModernFrame.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/ModernMenu.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/ModernTab.xaml" />
+                <ResourceDictionary Source="/ControlLibrary;component/Themes/ModernWindow.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

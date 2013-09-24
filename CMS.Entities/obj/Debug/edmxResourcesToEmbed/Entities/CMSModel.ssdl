@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBExampleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DBExampleModelStoreContainer">
+    <EntitySet Name="News" EntityType="DBExampleModel.Store.News" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsApprove" Type="bit" Nullable="false" />
+  </EntityType>
+</Schema>

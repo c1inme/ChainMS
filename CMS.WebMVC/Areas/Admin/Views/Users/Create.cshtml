@@ -1,0 +1,99 @@
+﻿@using CMS.WebMVC;
+@model CMS.Entities.ServerObjects.Users
+
+@{
+    ViewBag.Title = "Tạo mới người dùng";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Users", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Users</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsApproved)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsApproved)
+            @Html.ValidationMessageFor(model => model.IsApproved)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Alias)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Alias)
+            @Html.ValidationMessageFor(model => model.Alias)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MobileUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MobileUser)
+            @Html.ValidationMessageFor(model => model.MobileUser)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsSystem)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsSystem)
+            @Html.ValidationMessageFor(model => model.IsSystem)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImagePath)
+        </div>
+        <div class="editor-field">
+            @Html.UploadImageFor(model => model.ImagePath, "Avartar","Avartar")
+            @Html.ValidationMessageFor(model => model.ImagePath)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-previewimage.js")" type="text/javascript"></script>

@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:CMS.WPFHeadOffice">
+    <ResourceDictionary.MergedDictionaries>
+
+        <!--<ResourceDictionary Source="/CMS.WPFHeadOffice;component/Themes/ButtonStyle.xaml"/>-->
+        <!--<ResourceDictionary Source="/CMS.WPFHeadOffice;component/Themes/Window.xaml"/>-->
+        
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="local:FLabel">
+        <Setter Property="Foreground"
+            Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+</ResourceDictionary>

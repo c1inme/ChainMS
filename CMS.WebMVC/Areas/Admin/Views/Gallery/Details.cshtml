@@ -1,0 +1,71 @@
+﻿@model CMS.Entities.ServerObjects.Gallery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Gallery</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IDBelong)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IDBelong)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Link)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Link)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SourceUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SourceUrl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SortOrder)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SortOrder)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TypeEnum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeEnum)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CMS.Entities.ServerObjects.Language>
+@using CMS.WebMVC;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PathFlagLanguage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeLanguage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameLanguage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayImageFor(modelItem => item.PathFlagLanguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeLanguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameLanguage)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GuidId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GuidId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GuidId })
+            </td>
+        </tr>
+    }
+
+</table>

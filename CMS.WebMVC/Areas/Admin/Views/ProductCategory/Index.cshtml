@@ -1,0 +1,109 @@
+﻿@using CMS.WebMVC;
+@functions
+{ 
+    public int getLevel(CMS.Entities.ServerObjects.ProductCategory item, int currentLevel = 0)
+    {
+        if (item.ParentId != null)
+            currentLevel = getLevel(item.ParentProductCategory, ++currentLevel);
+        return currentLevel;
+    }
+}
+@model IEnumerable<CMS.Entities.ServerObjects.ProductCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IconImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th></th>
+    </tr>
+
+    @GenHTML(Model)
+
+    @helper GenHTML(IEnumerable<CMS.Entities.ServerObjects.ProductCategory> models)
+{
+    foreach (var item in models)
+    {
+        if (item.ListProductCategory != null && item.ListProductCategory.Count > 0)
+        {
+        @CreateGrid(item)
+        @GenHTML(item.ListProductCategory)
+        }
+        else
+        {
+        @CreateGrid(item)
+        }
+    }
+    }
+
+
+
+    @helper CreateGrid(CMS.Entities.ServerObjects.ProductCategory item)
+{
+        <tr>
+            <td style="font-weight: bold">
+
+                @{
+                    int levelC = getLevel(item, 0);
+                    for (int i = 0; i < levelC; i++)
+                    {
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    }
+                    
+                    @MvcHtmlString.Create("- ")
+                    @Html.DisplayFor(modelItem => item.Name)
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                }
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Order)
+            </td>
+            <td>
+                @Html.DisplayImageFor(modelItem => item.IconImage, "", "", "", "", "", "80px")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                @Html.ActionLink("Manage property", "AddProperty", new { id = item.GuidId }) |
+                 @Html.ActionLink("New", "Create", new { guidParent = item.GuidId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.GuidId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GuidId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GuidId })
+            </td>
+        </tr>
+   
+    }
+
+</table>

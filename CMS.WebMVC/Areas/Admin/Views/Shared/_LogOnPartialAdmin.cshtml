@@ -1,0 +1,28 @@
+﻿@{ 
+    if (Request.IsAuthenticated)
+    {
+        var userMember = Membership.GetUser();
+        CMS.WCFService.ServicesServer.ServerService service = new CMS.WCFService.ServicesServer.ServerService();
+        var user = service.GetUserByKey((Guid)userMember.ProviderUserKey);
+        if (user != null && user.IsSystem)
+        {
+    <text>Welcome <strong>@User.Identity.Name</strong>!
+   [ @Html.ActionLink("Log Off", "LogOff", "../Account") ]</text>
+        }
+        else
+        {
+            Response.Redirect("/");
+        }
+    }
+    else
+    {
+        try
+        {
+            HttpContext.Current.Response.Redirect("/Account/LogOn");
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+}

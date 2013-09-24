@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChainMSModel1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ClientChainMS" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Comments" EntityType="ChainMSModel1.Comment" />
+    <EntitySet Name="Galleries" EntityType="ChainMSModel1.Gallery" />
+    <EntitySet Name="GrantPermissions" EntityType="ChainMSModel1.GrantPermission" />
+    <EntitySet Name="GroupMemberPermissions" EntityType="ChainMSModel1.GroupMemberPermission" />
+    <EntitySet Name="GroupPermissions" EntityType="ChainMSModel1.GroupPermission" />
+    <EntitySet Name="Images" EntityType="ChainMSModel1.Image" />
+    <EntitySet Name="Manufactures" EntityType="ChainMSModel1.Manufacture" />
+    <EntitySet Name="MenuCategories" EntityType="ChainMSModel1.MenuCategory" />
+    <EntitySet Name="NameDictionaries" EntityType="ChainMSModel1.NameDictionary" />
+    <EntitySet Name="News" EntityType="ChainMSModel1.News" />
+    <EntitySet Name="PermissionDefinitions" EntityType="ChainMSModel1.PermissionDefinition" />
+    <EntitySet Name="Products" EntityType="ChainMSModel1.Product" />
+    <EntitySet Name="ProductCategories" EntityType="ChainMSModel1.ProductCategory" />
+    <EntitySet Name="Ratings" EntityType="ChainMSModel1.Rating" />
+    <EntitySet Name="SEOContents" EntityType="ChainMSModel1.SEOContent" />
+    <EntitySet Name="TableLastModifieds" EntityType="ChainMSModel1.TableLastModified" />
+    <EntitySet Name="TraceChanges" EntityType="ChainMSModel1.TraceChange" />
+    <EntitySet Name="Users" EntityType="ChainMSModel1.User" />
+    <AssociationSet Name="FK_GrantPermission_PermissionDefinition" Association="ChainMSModel1.FK_GrantPermission_PermissionDefinition">
+      <End Role="PermissionDefinition" EntitySet="PermissionDefinitions" />
+      <End Role="GrantPermission" EntitySet="GrantPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupMemberPermission_GroupPermission" Association="ChainMSModel1.FK_GroupMemberPermission_GroupPermission">
+      <End Role="GroupPermission" EntitySet="GroupPermissions" />
+      <End Role="GroupMemberPermission" EntitySet="GroupMemberPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupMemberPermission_Users" Association="ChainMSModel1.FK_GroupMemberPermission_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="GroupMemberPermission" EntitySet="GroupMemberPermissions" />
+    </AssociationSet>
+    <EntitySet Name="AccountInformations" EntityType="ChainMSModel1.AccountInformation" />
+    <EntitySet Name="CurrencyUnits" EntityType="ChainMSModel1.CurrencyUnit" />
+    <EntitySet Name="CustomerSuppliers" EntityType="ChainMSModel1.CustomerSupplier" />
+    <EntitySet Name="Employees" EntityType="ChainMSModel1.Employee" />
+    <EntitySet Name="GroupCustomerSuppliers" EntityType="ChainMSModel1.GroupCustomerSupplier" />
+    <EntitySet Name="IncomeExpenditures" EntityType="ChainMSModel1.IncomeExpenditure" />
+    <EntitySet Name="LiabilitiesPeriods" EntityType="ChainMSModel1.LiabilitiesPeriod" />
+    <EntitySet Name="LocationCategories" EntityType="ChainMSModel1.LocationCategory" />
+    <EntitySet Name="Manufacturers" EntityType="ChainMSModel1.Manufacturer" />
+    <EntitySet Name="PaymentMethods" EntityType="ChainMSModel1.PaymentMethod" />
+    <EntitySet Name="PeriodPayments" EntityType="ChainMSModel1.PeriodPayment" />
+    <EntitySet Name="WareHouses" EntityType="ChainMSModel1.WareHouse" />
+  </EntityContainer>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="IdFather" Type="Guid" />
+    <Property Name="IdBelong" Type="Guid" Nullable="false" />
+    <Property Name="Discriminator" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="Guid" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Link" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="SourceUrl" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="TypeEnum" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GrantPermission">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="IDGranted" Type="Guid" />
+    <Property Name="IDDefinitionPermission" Type="Guid" />
+    <Property Name="Discriminator" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PermissionDefinition" Relationship="ChainMSModel1.FK_GrantPermission_PermissionDefinition" FromRole="GrantPermission" ToRole="PermissionDefinition" />
+  </EntityType>
+  <EntityType Name="GroupMemberPermission">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="IDUser" Type="Guid" />
+    <Property Name="IDGroupPermission" Type="Guid" />
+    <NavigationProperty Name="GroupPermission" Relationship="ChainMSModel1.FK_GroupMemberPermission_GroupPermission" FromRole="GroupMemberPermission" ToRole="GroupPermission" />
+    <NavigationProperty Name="User" Relationship="ChainMSModel1.FK_GroupMemberPermission_Users" FromRole="GroupMemberPermission" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="GroupPermission">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="CodeGroup" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NameGroup" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="GroupMemberPermissions" Relationship="ChainMSModel1.FK_GroupMemberPermission_GroupPermission" FromRole="GroupPermission" ToRole="GroupMemberPermission" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="IdBelong" Type="Guid" />
+    <Property Name="Discriminator" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="FullHdPath" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="ThumpnailPath" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Manufacture">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="HomePage" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="MenuCategory">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="MenuName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ParentId" Type="Guid" />
+    <Property Name="Order" Type="Int32" />
+    <Property Name="IconImage" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="IsShowHome" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Link" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="NameDictionary">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="InternalName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TableName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="IsLookup" Type="Boolean" />
+    <Property Name="TableLookup" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyLookupDisplay" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="MenuId" Type="Guid" />
+    <Property Name="ImagePath" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Tags" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsHot" Type="Boolean" />
+    <Property Name="ViewNumber" Type="Int32" />
+    <Property Name="PublishDate" Type="DateTime" Precision="3" />
+    <Property Name="DateExpired" Type="DateTime" Precision="3" />
+    <Property Name="Link" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Discriminator" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="PermissionDefinition">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="CodePermision" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NamePermission" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ActionType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SortNumber" Type="Int32" />
+    <NavigationProperty Name="GrantPermissions" Relationship="ChainMSModel1.FK_GrantPermission_PermissionDefinition" FromRole="PermissionDefinition" ToRole="GrantPermission" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="ProductCategoryId" Type="Guid" />
+    <Property Name="SellPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BuyPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ManufactureId" Type="Int32" />
+    <Property Name="CurrentStock" Type="Int32" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="IsAvailable" Type="Boolean" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="ImagePath" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="IdBelong" Type="Guid" />
+    <Property Name="Discriminator" Type="Int32" />
+    <Property Name="SumRating" Type="Int32" />
+    <Property Name="CountCurrent" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SEOContent">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TableLastModified">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="TableName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TraceChange">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="TableChange" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyChange" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="OldValue" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NewValue" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="VersionChange" Type="Int32" Nullable="false" />
+    <Property Name="GuiIdChange" Type="Guid" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="ModifyBy" Type="Guid" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="VersionNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Alias" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="ShortName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FullName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="EmailUser" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="MobileUser" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="GroupMemberPermissions" Relationship="ChainMSModel1.FK_GroupMemberPermission_Users" FromRole="Users" ToRole="GroupMemberPermission" />
+  </EntityType>
+  <Association Name="FK_GrantPermission_PermissionDefinition">
+    <End Role="PermissionDefinition" Type="ChainMSModel1.PermissionDefinition" Multiplicity="0..1" />
+    <End Role="GrantPermission" Type="ChainMSModel1.GrantPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionDefinition">
+        <PropertyRef Name="GuidId" />
+      </Principal>
+      <Dependent Role="GrantPermission">
+        <PropertyRef Name="IDDefinitionPermission" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupMemberPermission_GroupPermission">
+    <End Role="GroupPermission" Type="ChainMSModel1.GroupPermission" Multiplicity="0..1" />
+    <End Role="GroupMemberPermission" Type="ChainMSModel1.GroupMemberPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupPermission">
+        <PropertyRef Name="GuidId" />
+      </Principal>
+      <Dependent Role="GroupMemberPermission">
+        <PropertyRef Name="IDGroupPermission" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupMemberPermission_Users">
+    <End Role="Users" Type="ChainMSModel1.User" Multiplicity="0..1" />
+    <End Role="GroupMemberPermission" Type="ChainMSModel1.GroupMemberPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="GuidId" />
+      </Principal>
+      <Dependent Role="GroupMemberPermission">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AccountInformation">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CurrencyUnit">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CustomerSupplier">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="CodeSC" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="GoupID" />
+    <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TaxCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ContactID" />
+    <Property Type="String" Name="PrimaryEmail" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="LiabilitiesLimited" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="Discount" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAvaiable" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="BirthDay" Precision="3" />
+    <Property Type="DateTime" Name="BeginWork" Precision="3" />
+    <Property Type="String" Name="AccountNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameAccountNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UserID" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="GroupCustomerSupplier">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="CodeGroup" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameGroup" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="IDBelong" />
+    <Property Type="String" Name="Discriminator" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IncomeExpenditure">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="CodeMethod" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameMethod" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LiabilitiesPeriod">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="Guid" Name="CustomerSupplierID" />
+    <Property Type="Decimal" Name="Receivables" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Payables" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="FirstPayPeriod" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="FirstReceivablePeriod" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LocationCategory">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Discriminator" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Manufacturer">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PeriodPayment">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DaysForPayment" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WareHouse">
+    <Key>
+      <PropertyRef Name="GuidId" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="CreateBy" />
+    <Property Type="Guid" Name="ModifyBy" />
+    <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="Decimal" Name="VersionNumber" Precision="18" Scale="0" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,50 @@
+﻿@model CMS.Entities.ServerObjects.Language
+@using CMS.WebMVC;
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+@using (Html.BeginForm(Html.BeginForm("Create", "Language", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Language</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CodeLanguage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CodeLanguage)
+            @Html.ValidationMessageFor(model => model.CodeLanguage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NameLanguage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NameLanguage)
+            @Html.ValidationMessageFor(model => model.NameLanguage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PathFlagLanguage)
+        </div>
+        <div class="editor-field">
+            @Html.UploadImageFor(model => model.Picture, "Picture", "Picture")
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="@Url.Content("~/Scripts/jquery-previewimage.js")" type="text/javascript"></script>

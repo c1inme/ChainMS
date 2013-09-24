@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Media Picker</title>
+    <link href="css/mediapicker.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+    <script type="text/javascript" src="js/sugar-1.2.4.min.js"></script>
+    <script type="text/javascript" src="js/dialog.js"></script>
+    <script type="text/javascript" src="js/mediapicker.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            cache: false
+        });
+
+        $(function() {
+            mediapicker.init();
+        });
+    </script>
+</head>
+    <body>
+        <div class="tabs">
+            <ul>
+                <li id="images_tab" class="current" aria-controls="images_panel"><span><a href="javascript:mcTabs.displayTab('images_tab','images_panel');" onmousedown="return false;">Insert/Upload Image</a></span></li>
+                <li id="files_tab" aria-controls="files_panel"><span><a href="javascript:mcTabs.displayTab('files_tab','files_panel');" onmousedown="return false;">Insert/Upload File</a></span></li>
+            </ul>
+        </div>
+        
+        <div class="panel_wrapper">
+            <div id="images_panel" class="panel current">
+                <div class="breadcrumbs"></div>
+                <fieldset>
+                    <legend>Media</legend>
+                    <div id="image-preview"></div>
+                    <div id="hidden-image-preview"></div>
+                    <div class="directory-list">
+                        <ul class="media-list"></ul>
+                    </div>
+                </fieldset>
+                
+                <div class="left-col">
+                    <fieldset>
+                        <legend>New Folder</legend>
+                    
+                        <form action="#" class="folder-creation" method="POST">
+                            <div>
+                                <input type="text" id="FolderName" name="FolderName"/>
+                            </div>
+                            <div>
+                                <input type="submit" value="Add Folder" class="button"/>
+                            </div>
+                        </form>    
+                    </fieldset>
+                
+                    <fieldset>
+                        <legend>Upload Image</legend>
+                        <form action="#" class="upload-image" method="POST" enctype="multipart/form-data">
+                            <div>
+                                <input type="file" name="TheFile" value="Choose File"/>
+                            </div>
+                    
+                            <div>
+                                <input type="submit" value="Add Image" class="button"/>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+                <div class="right-col">
+                    <fieldset>
+                        <legend>Image Details</legend>
+                        <div>
+                            
+                            <table>
+                                <tr>
+                                    <td>Image URL:</td>
+                                    <td>
+                                        <input type="text" id="ImageUrl" name="ImageUrl"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alt Text:</td>
+                                    <td>
+                                        <input type="text" id="AltText" name="AltText" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Class:</td>
+                                    <td>
+                                        <input type="text" id="CssClass" name="CssClass"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Style:</td>
+                                    <td>
+                                        <input type="text" id="CssStyles" name="CssStyles"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alignment:</td>
+                                    <td>
+                                        <select id="Alignment" name="Alignment">
+                                            <option>Left</option>
+                                            <option>Center</option>
+                                            <option>Right</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Size:</td>
+                                    <td>
+                                        <input type="text" id="Width" name="Width" style="width: 50px;"/>
+                                        X
+                                        <input type="text" id="Height" name="Height" style="width: 50px;"/>                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lock Aspect Ratio:</td>
+                                    <td>
+                                        <input type="checkbox" id="LockAspectRatio" name="LockAspectRatio"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div style="clear:both;"></div>
+                
+                <div class="control-form">
+                    <form onsubmit="MediaPickerDialog.insertImage();return false;" action="#">
+                        Image:
+                        <input type="text" id="ImageTag" name="ImageTag" class="text"/>
+                        <div class="mceActionPanel">
+                            <input type="button" class="button" id="insert" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertImage();" />
+                            <input type="button" class="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="files_panel" class="panel">
+                
+                <form onsubmit="MediaPickerDialog.insertFile();return false;" action="#">
+                    File:
+                    <input type="text" id="FileLink" name="FileLink" class="text"/>
+                    <div class="mceActionPanel">
+                        <input type="button" class="button" id="insert" name="insert" value="{#insert}" onclick="MediaPickerDialog.insertFile();" />
+                        <input type="button" class="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>

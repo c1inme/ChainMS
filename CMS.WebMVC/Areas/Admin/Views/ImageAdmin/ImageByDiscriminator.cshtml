@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CMS.Entities.ServerObjects.Image>
+@using CMS.WebMVC;
+@{
+    ViewBag.Title = "Image By Discriminator";
+}
+
+<h2>ImageByDiscriminator</h2>
+
+<p>
+     @Html.ActionLink("Create", "Create", "ImageAdmin", new { Discriminator = (string)ViewBag.discriminator, IdBelong = (Guid)ViewBag.IdBelong},new object())|
+</p>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ThumpnailPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayImageFor(modelItem => item.ThumpnailPath, "", "", "", "", "", "80px")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.GuidId  }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GuidId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GuidId })
+            </td>
+        </tr>
+    }
+
+</table>
+  @Html.ActionLink("Back to parrent", "Details",(string)ViewBag.discriminator, new { id = (Guid)ViewBag.IdBelong},new object())

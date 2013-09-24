@@ -1,0 +1,39 @@
+﻿@model CMS.Entities.ServerObjects.Language
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Language</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CodeLanguage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CodeLanguage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NameLanguage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NameLanguage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PathFlagLanguage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PathFlagLanguage)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

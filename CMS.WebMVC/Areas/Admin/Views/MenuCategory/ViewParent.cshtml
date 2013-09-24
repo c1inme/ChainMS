@@ -1,0 +1,20 @@
+﻿@using CMS.WebMVC.Helpers
+@model List<CMS.WebMVC.Controllers.TreeViewLocation>
+
+<h2>TreeView</h2>
+
+@using (Html.BeginForm("Index", "TreeView"))
+{
+@(Html.TreeView(Model)
+    .EmptyContent("No locations have been defined yet!")
+    .Children(m => m.ChildLocations)
+    .HtmlAttributes(new { id = "tree" })
+    .ChildrenHtmlAttributes(new { @class = "subItem" })
+    .ItemText(m => m.Name)
+    .ItemTemplate(
+        @<text>
+            <a href="#@item.Id">@item.Name</a>
+        </text>)
+)
+
+}

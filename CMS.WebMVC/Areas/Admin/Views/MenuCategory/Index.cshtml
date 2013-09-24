@@ -1,0 +1,138 @@
+﻿@using CMS.WebMVC;
+@functions
+{ 
+    public int getLevel(CMS.Entities.ServerObjects.MenuCategory item, int currentLevel = 0)
+    {
+        if (item.ParentId != null)
+            currentLevel = getLevel(item.ParentMenuCategory, ++currentLevel);
+        return currentLevel;
+    }
+}
+@model IEnumerable<CMS.Entities.ServerObjects.MenuCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#NameLanguageId").change(function () {
+            var ddlsource = "#NameLanguageId";
+            var url = '@Url.Content("~/")' + "Admin/MenuCategory?codeLang=" + $(ddlsource).val();
+            $(location).attr('href', url);
+
+        });
+    });
+</script>
+
+<p>
+
+    <br />
+    @Html.ActionLink("Create New", "Create", new { codeLang = Request.QueryString["codeLang"] })
+    @GenLang(ViewBag.Languages as IEnumerable<CMS.Entities.ServerObjects.Language>)
+    @helper GenLang(IEnumerable<CMS.Entities.ServerObjects.Language> langs)
+{
+    var langCode = Context.Request.QueryString["codeLang"];
+    var langSelected = langs.FirstOrDefault(f => f.CodeLanguage == langCode);
+        @Html.DropDownList("NameLanguageId", new SelectList(langs, "CodeLanguage", "NameLanguage", langSelected == null ? "" : langSelected.CodeLanguage));
+    }
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IconImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsShowHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th></th>
+    </tr>
+
+    @GenHTML(Model)
+
+    @helper GenHTML(IEnumerable<CMS.Entities.ServerObjects.MenuCategory> models)
+{
+    foreach (var item in models)
+    {
+        if (item.ListMenuCategory != null && item.ListMenuCategory.Count > 0)
+        {
+        @CreateGrid(item)
+        @GenHTML(item.ListMenuCategory)
+        }
+        else
+        {
+        @CreateGrid(item)
+        }
+    }
+    }
+
+
+
+    @helper CreateGrid(CMS.Entities.ServerObjects.MenuCategory item)
+{
+        <tr>
+            <td style="font-weight: bold">
+
+                @{
+                    int levelC = getLevel(item, 0);
+                    for (int i = 0; i < levelC; i++)
+                    {
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                    }
+                    
+                    @MvcHtmlString.Create("- ")
+                    @Html.DisplayFor(modelItem => item.Name)
+                    @MvcHtmlString.Create("&nbsp;")
+                    @MvcHtmlString.Create("&nbsp;")
+                }
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Order)
+            </td>
+            <td>
+                @Html.DisplayImageFor(modelItem => item.IconImage, "", "", "", "", "", "80px")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsShowHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                @Html.ActionLink("New", "Create", new { guidParent = item.GuidId, codeLang = item.Lang.CodeLanguage }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.GuidId, codeLang = item.Lang.CodeLanguage }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GuidId, codeLang = item.Lang.CodeLanguage }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GuidId, codeLang = item.Lang.CodeLanguage })
+            </td>
+        </tr>
+   
+    }
+
+</table>
